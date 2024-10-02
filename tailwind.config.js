@@ -1,4 +1,5 @@
 module.exports = {
+  prefix: 'tw-',
   content: [
     './layout/*.liquid',
     './templates/*.liquid',

@@ -1,0 +1,98 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+<section class="page-width page-width--narrow section-{{ section.id }}-padding">
+  <div class="tw-px-6 tw-py-6 md:tw-px-40 md:tw-py-16">
+    <h1 class="tw-mb-12">{{ page.title | escape }}</h1>
+  </div>
+  
+  <div class="tw-grid tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8 tw-px-6 lg:tw-px-20">
+    {% for block in section.blocks %}
+      {% if block.type == 'image' and block.settings.image != blank %}
+        <div class="tw-flex tw-flex-col tw-items-center tw-group" {{ block.shopify_attributes }}>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="tw-block tw-w-full">
+          {% endif %}
+              <div class="tw-relative tw-w-full tw-aspect-square tw-overflow-hidden tw-transition-transform tw-duration-300 tw-ease-in-out group-hover:tw-scale-105">
+                {%- assign image = block.settings.image -%}
+                <img
+                  srcset="
+                    {{ image | img_url: '400x' }} 400w,
+                    {{ image | img_url: '500x' }} 500w,
+                    {{ image | img_url: '600x' }} 600w,
+                    {{ image | img_url: '800x' }} 800w
+                  "
+                  src="{{ image | img_url: '500x' }}"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  alt="{{ image.alt | escape }}"
+                  class="tw-object-cover tw-w-full tw-h-full tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-opacity-90"
+                  loading="lazy"
+                >
+                {% if block.settings.link != blank %}
+                  <div class="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-0 tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-bg-opacity-10"></div>
+                {% endif %}
+              </div>
+              <h5 class="tw-mt-4 tw-font-semibold tw-text-center {% if block.settings.link != blank %}group-hover:tw-underline{% endif %}">
+                {{ block.settings.title }}
+              </h5>
+          {% if block.settings.link != blank %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Image Gallery"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Image Title",
+          "default": "Image Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Grid",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
