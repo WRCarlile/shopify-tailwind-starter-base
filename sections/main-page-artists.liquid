@@ -1,5 +1,5 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
-<section class="page-width page-width--narrow section-{{ section.id }}-padding">
+<section class="page-width section-{{ section.id }}-padding">
   <div class="tw-px-6 tw-py-6 md:tw-px-40 md:tw-py-16">
     <h1 class="tw-mb-12">{{ page.title | escape }}</h1>
   </div>
@@ -30,9 +30,9 @@
                   <div class="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-0 tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-bg-opacity-10"></div>
                 {% endif %}
               </div>
-              <h5 class="tw-mt-4 tw-font-semibold tw-text-center {% if block.settings.link != blank %}group-hover:tw-underline{% endif %}">
+              <h4 class="tw-mt-4 tw-font-semibold tw-text-center {% if block.settings.link != blank %}group-hover:tw-underline{% endif %}">
                 {{ block.settings.title }}
-              </h5>
+              </h4>
           {% if block.settings.link != blank %}
             </a>
           {% endif %}

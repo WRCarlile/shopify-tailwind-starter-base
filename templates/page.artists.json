@@ -1,41 +1,53 @@
 {
-    "sections": {
-      "main": {
-        "type": "main-page-artists",
-        "blocks": {
-          "16540417982b608af8-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "First Image Title"
-            }
-          },
-          "1654041801c9e37f0c-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "Second Image Title"
-            }
-          },
-          "165404179461cb448f-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "Third Image Title"
-            }
+  "sections": {
+    "main": {
+      "type": "main-page-artists",
+      "blocks": {
+        "16540417982b608af8-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ahmedou-ahmed-lowla-small.jpg",
+            "title": "Ahmedou Ahmed Lowlale",
+            "link": "shopify:\/\/pages\/artists"
           }
         },
-        "block_order": [
-          "16540417982b608af8-1",
-          "1654041801c9e37f0c-0",
-          "165404179461cb448f-1"
-        ],
-        "settings": {
-          "title": "Image Gallery"
+        "1654041801c9e37f0c-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/amanar-small-1.jpg",
+            "title": "Amanar",
+            "link": "shopify:\/\/pages\/artists"
+          }
+        },
+        "165404179461cb448f-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dj_diaki_crop.png",
+            "title": "DJ Diaki",
+            "link": "shopify:\/\/pages\/artists"
+          }
+        },
+        "image_Y9JnfC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/etran-de-lair-small.jpg",
+            "title": "Etran de L’Aïr",
+            "link": "shopify:\/\/pages\/artists"
+          }
         }
+      },
+      "block_order": [
+        "16540417982b608af8-1",
+        "1654041801c9e37f0c-0",
+        "165404179461cb448f-1",
+        "image_Y9JnfC"
+      ],
+      "settings": {
+        "title": "Image Gallery"
       }
-    },
-    "order": [
-      "main"
-    ]
-  }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
