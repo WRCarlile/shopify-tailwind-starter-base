@@ -1,0 +1,195 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+<section class="page-width section-{{ section.id }}-padding">
+
+<div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 tw-mt-4 tw-border-b tw-border-gray-200">
+  <div class="tw-pr-0 md:tw-pr-4">
+    {%- if section.settings.artist_image != blank -%}
+      {%- assign image = section.settings.artist_image -%}
+      <img src="{{ image | img_url: 'large' }}"
+           srcset="{{ image | img_url: '400x' }} 400w,
+                   {{ image | img_url: '600x' }} 600w,
+                   {{ image | img_url: '800x' }} 800w"
+           sizes="(max-width: 60em) 100vw, 50vw"
+           loading="lazy"
+           alt="{{ section.settings.title | escape }}"
+           width="{{ image.width }}"
+           height="{{ image.height }}"
+           class="tw-w-full">
+    {%- endif -%}
+  </div>
+
+  <div class="tw-pl-0 md:tw-pl-4">
+    <h1 class="tw-mt-4 md:tw-mt-0 tw-mb-0">
+      {{ section.settings.title }}
+    </h1>
+    <div class="rte tw-pt-6 tw-mb-4 lg:tw-mb-16 tw-text-xl">
+      {{ section.settings.artist_bio }}
+    </div>
+</div>
+  
+</div>
+<div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 tw-mt-4 tw-border-b tw-border-gray-200">
+   <!-- Events Section -->
+   <div class="tw-order-2 lg:tw-order-1">
+        <div class="tw-mb-4 tw-pb-4 lg:tw-w-full tw-pr-10">
+            {% for block in section.blocks %}
+                {% if block.type == 'songkick_embed' %}
+                <div class="tw-my-4" {{ block.shopify_attributes }}>
+                    {{ block.settings.embed_code }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="tw-mt-4 tw-order-1 lg:tw-order-2">
+        <div class="tw-mb-4 tw-pb-4 tw-w-full">
+            <h3 class="tw-text-3xl tw-font-black tw-uppercase tw-text-left tw-my-6">Tracks</h3>
+            {% for block in section.blocks %}
+              {% if block.type == 'bandcamp_embed' %}
+                <div class="tw-my-4" {{ block.shopify_attributes }}>
+                  {{ block.settings.embed_code }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        <!-- External Links Section -->
+       <div class="tw-mb-4 tw-pb-4">
+        <h3 class="tw-text-3xl tw-font-black tw-uppercase tw-text-left tw-my-6">Links</h3>
+            {% for block in section.blocks %}
+            {% if block.type == 'link' %}
+                <div class="tw-py-1">
+                <a class="tw-underline hover:tw-text-gray-900" href="{{ block.settings.url }}" target="_blank">
+                    {{ block.settings.title }}
+                </a>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+<!-- Videos Section -->
+{% assign has_videos = false %}
+{% for block in section.blocks %}
+  {% if block.type == 'video' %}
+    {% assign has_videos = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if has_videos %}
+    <div class="tw-mt-8">
+        <h3 class="tw-text-3xl tw-font-black tw-uppercase tw-text-left tw-my-6">Videos</h3>
+        <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
+          {% for block in section.blocks %}
+            {% if block.type == 'video' %}
+              <div class="tw-mb-6">
+                <div class="tw-relative tw-w-full tw-pb-[56.25%]">
+                  {% if block.settings.video_url.type == "youtube" %}
+                    <iframe 
+                      src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}" 
+                      frameborder="0" 
+                      allow="autoplay; encrypted-media" 
+                      allowfullscreen 
+                      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full"
+                    ></iframe>
+                  {% elsif block.settings.video_url.type == "vimeo" %}
+                    <iframe 
+                      src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}" 
+                      frameborder="0" 
+                      allow="autoplay; encrypted-media" 
+                      allowfullscreen 
+                      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full"
+                    ></iframe>
+                  {% endif %}
+                </div>
+                <h3 class="tw-mt-4 tw-text-2xl tw-font-semibold">{{ block.settings.video_title }}</h3>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Artist Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Artist Name",
+      "default": "Artist Name"
+    },
+    {
+      "type": "image_picker",
+      "id": "artist_image",
+      "label": "Artist Image"
+    },
+    {
+      "type": "richtext",
+      "id": "artist_bio",
+      "label": "Artist Biography"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "External Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "video_title",
+          "label": "Video Title"
+        }
+      ]
+    },
+    {
+      "type": "songkick_embed",
+      "name": "Songkick Embed",
+      "settings": [
+        {
+          "type": "html",
+          "id": "embed_code",
+          "label": "Songkick Embed Code"
+        }
+      ]
+    },
+    {
+        "type": "bandcamp_embed",
+        "name": "Bandcamp Embed",
+        "settings": [
+        {
+            "type": "html",
+            "id": "embed_code",
+            "label": "Bandcamp Embed Code"
+        }
+        ]
+    }
+  ]
+}
+{% endschema %}

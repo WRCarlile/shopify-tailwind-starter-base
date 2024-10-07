@@ -3,7 +3,7 @@
   <div class="tw-px-6 tw-py-6 md:tw-px-40 md:tw-py-16">
     <h1 class="tw-mb-12">{{ page.title | escape }}</h1>
   </div>
-  
+
   <div class="tw-grid tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8 tw-px-6 lg:tw-px-20">
     {% for block in section.blocks %}
       {% if block.type == 'image' and block.settings.image != blank %}
@@ -14,17 +14,19 @@
               <div class="tw-relative tw-w-full tw-aspect-square tw-overflow-hidden tw-transition-transform tw-duration-300 tw-ease-in-out group-hover:tw-scale-105">
                 {%- assign image = block.settings.image -%}
                 <img
-                  srcset="
+                    srcset="
                     {{ image | img_url: '400x' }} 400w,
                     {{ image | img_url: '500x' }} 500w,
                     {{ image | img_url: '600x' }} 600w,
                     {{ image | img_url: '800x' }} 800w
                   "
-                  src="{{ image | img_url: '500x' }}"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  alt="{{ image.alt | escape }}"
-                  class="tw-object-cover tw-w-full tw-h-full tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-opacity-90"
-                  loading="lazy"
+                    src="{{ image | img_url: '500x' }}"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    alt="{{ image.alt | escape }}"
+                    class="tw-object-cover tw-w-full tw-h-full tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-opacity-90"
+                    loading="lazy"
                 >
                 {% if block.settings.link != blank %}
                   <div class="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-0 tw-transition-opacity tw-duration-300 tw-ease-in-out group-hover:tw-bg-opacity-10"></div>

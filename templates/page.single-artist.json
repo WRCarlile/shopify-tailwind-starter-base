@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page-single-artist",
+      "blocks": {
+        "bandcamp_embed_qex3Nx": {
+          "type": "bandcamp_embed",
+          "settings": {
+            "embed_code": "<iframe style=\"border: 0; width: 350px; height: 470px;\" src=\"https:\/\/bandcamp.com\/EmbeddedPlayer\/album=193603912\/size=large\/bgcol=ffffff\/linkcol=0687f5\/tracklist=false\/transparent=true\/\" seamless=\"\"><a href=\"https:\/\/etrandelair.bandcamp.com\/album\/100-sahara-guitar\">100% Sahara Guitar by Etran de L'Aïr<\/a><\/iframe>"
+          }
+        },
+        "songkick_embed_YD6Qqh": {
+          "type": "songkick_embed",
+          "settings": {
+            "embed_code": "<a href=\"https:\/\/www.songkick.com\/artists\/10172905\" class=\"songkick-widget\" data-theme=\"light\" data-track-button=\"on\" data-detect-style=\"on\" data-locale=\"en\" data-other-artists=\"on\" data-share-button=\"on\" data-country-filter=\"on\" data-rsvp=\"on\" data-request-show=\"on\" data-past-events=\"off\" data-past-events-offtour=\"off\" data-remind-me=\"off\" style=\"display: none;\"><\/a><script src=\"\/\/widget-app.songkick.com\/injector\/10172905\"><\/script>"
+          }
+        },
+        "link_CxigUz": {
+          "type": "link",
+          "settings": {
+            "title": "Bandcamp",
+            "url": "https:\/\/etrandelair.bandcamp.com\/album\/100-sahara-guitar"
+          }
+        },
+        "link_aFiQGj": {
+          "type": "link",
+          "settings": {
+            "title": "Spotify",
+            "url": "https:\/\/spotify.com"
+          }
+        },
+        "video_8qVgcN": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=KuBH8ekUELA",
+            "video_title": "Marriage Agadez"
+          }
+        },
+        "video_yYEqrn": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=ixhOMNBAp50",
+            "video_title": "No 1. (Album Teaser)"
+          }
+        }
+      },
+      "block_order": [
+        "bandcamp_embed_qex3Nx",
+        "songkick_embed_YD6Qqh",
+        "link_CxigUz",
+        "link_aFiQGj",
+        "video_8qVgcN",
+        "video_yYEqrn"
+      ],
+      "settings": {
+        "title": "Etran de L’Aïr",
+        "artist_image": "shopify:\/\/shop_images\/etran-de-lair-small.jpg",
+        "artist_bio": "<p>Etran de L’Aïr (or “stars of the Aïr region”) welcomes you to Agadez, the capital city of Saharan rock. Playing for over 25 years, Etran has emerged as stars of the local wedding circuit. Beloved for their dynamic repertoire of hypnotic solos and sun schlazed melodies, Etran stakes out a place for Agadez guitar music.<\/p><p>Etran is a family band composed of brothers and cousins, all born and raised in the small neighborhood of Abalane, just in the shadow of the grand mosque. Sons of nomadic families that settled here in the 1970s fleeing the droughts, they all grew up in Agadez. The band was formed in 1995 when current band leader Moussa “Abindi” Ibra was only 9 years old. “We only had one acoustic guitar,” he explains, “and for percussion, we hit a calabash with a sandal.” Over the decades, the band painstakingly pieced together gear to form their band and built an audience by playing everywhere, for everyone. “It was difficult. We would walk to gigs by foot, lugging all our equipment, carrying a small PA and guitars on our backs, 25 kilometers into the bush, to play for free…there’s nowhere in Agadez we haven’t played.”<\/p><p>Whereas other Tuareg guitarists look to Western rock, Etran de L’Aïr play in a pan-African style that is emblematic of their hometown, citing a myriad of cultural influences, from Northern Malian blues, Hausa bar bands, to Congolese Soukous. It’s perhaps this quality that makes them so beloved in Agadez. “We play for the Tuareg, the Toubou, the Zarma, the Hausa,” Abindi explains. “When you invite us, we come and play.” Their music is rooted in celebration, and invokes the exuberance of an Agadez wedding, with an overwhelming abundance of guitars, as simultaneous solos playfully pass over one another with a restrained precision, forceful yet never overindulgent. Yet even at its most serious, Etran’s music is engaged and dynamic, reminding us that music can transmit a message while lighting up a celebration. This is music for dancing, after all.<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
